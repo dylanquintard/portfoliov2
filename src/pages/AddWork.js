@@ -40,12 +40,15 @@ const AddWork = () => {
         tags,
       };
   
-      const formData = new FormData();
-      formData.append("image", image);
-      formData.append("travail", JSON.stringify(travailObject));
-  
-      axios.post("https://api.quintarddylan.fr:4000/api/works", formData, {
-      })
+const formData = new FormData();
+formData.append("image", image);
+formData.append("travail", JSON.stringify(travailObject));
+
+axios.post("https://api.quintarddylan.fr:4000/api/works", formData, {
+  headers: {
+    'Content-Type': 'multipart/form-data',
+  },
+})
         .then((response) => {
           console.log(response);
           if (response.status === 201) {
