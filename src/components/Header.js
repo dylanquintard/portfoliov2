@@ -7,6 +7,7 @@ import { Link, NavLink } from "react-router-dom";
 function Header() {
   const [information, setInformation] = useState("");
   const [navigationToggler, setNavigationToggler] = useState(false);
+  const [authenticated, setAuthenticated] = useState(false); // Add authentication state
 
   const handleNavigationToggler = () => {
     setNavigationToggler(!navigationToggler);
@@ -16,7 +17,17 @@ function Header() {
     axios.get("/api/information").then((response) => {
       setInformation(response.data);
     });
+
+    const token = localStorage.getItem('token');
+    setAuthenticated(!!token);
   }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    
+    setAuthenticated(false);
+    history.push('/'); 
+  };
 
   return (
     <nav className={navigationToggler ? "mi-header is-visible" : "mi-header"}>
@@ -61,12 +72,24 @@ function Header() {
             </NavLink>
           </li>
           <li>
-          </li>
-          <li>
             <NavLink to="/contact">
               <span>Contact</span>
             </NavLink>
           </li>
+          {authenticated && (
+            <li>
+            <NavLink to="/dashboard">
+              <span>Dashboard</span>
+            </NavLink>
+            </li>
+          )}
+            {authenticated && (
+            <li>
+              <a onClick={handleLogout}>
+                <span>Déconnexion</span>
+              </a>
+            </li>
+          )}
         </ul>
         <p className="mi-header-copyright">
           &copy; {new Date().getFullYear()}{" "}

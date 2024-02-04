@@ -64,9 +64,10 @@ function About() {
           <div className="container">
             <Sectiontitle title="À propos" />
             <div className="row align-items-center">
-              <div className="col-lg-0">
-                <div className="mi-about-image">
-                </div>
+              <div className="col-lg-4">
+                <img src="/images/about-me.png"></img>
+              </div>
+              <div className="col-lg-1">
               </div>
               <div className="col-lg-6">
                 <div className="mi-about-content">
@@ -99,7 +100,7 @@ function About() {
                         <b>Ville</b> Castres, 81100
                       </li>
                   </ul>
-                  <a href="/files/CV.pdf" className="mi-button">
+                  <a href="/files/CV.pdf" target="blank" className="mi-button">
                     Télécharger mon CV
                   </a>
                 </div>

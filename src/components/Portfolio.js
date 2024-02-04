@@ -19,14 +19,14 @@ function Portfolio(props) {
         </ProgressiveImage>
         <ul>
           <li>
-            <a rel="noopener noreferrer" target="_blank" href={`/portfolios/${_id}`}>
+            <a rel="noopener noreferrer" href={`/portfolios/${_id}`}>
               <Icon.ZoomIn />
             </a>
           </li>
           {github && (
             <li>
               <a rel="noopener noreferrer" target="_blank" href={github}>
-                <Icon.Code />
+                <Icon.GitHub />
               </a>
             </li>
           )}

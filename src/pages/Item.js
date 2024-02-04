@@ -95,22 +95,19 @@ function Item(props) {
                         <b>Année</b> {item.annee}
                       </li>
                       <li>
-                        <b>Technologies</b> {item.type}
-                      </li>
-                      <li>
                         {item.tags && item.tags.split(' ').map((tag, index) => (
                           <div className="tag" key={index}>#{tag}</div>
                         ))}
                       </li>
                   </ul>
                   {item.lien && (
-                    <a href={item.lien} className="mi-button">
+                    <a href={item.lien} target="blank" className="mi-button">
                       Visiter le site
                     </a>
                   )}
 
-                  {item.githubLink && (
-                    <a href={item.githubLink} className="mi-button">
+                  {item.github && (
+                    <a href={item.github} target="blank" className="mi-button">
                       GitHub
                     </a>
                   )}
