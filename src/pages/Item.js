@@ -101,13 +101,13 @@ function Item(props) {
                       </li>
                   </ul>
                   {item.lien && (
-                    <a href={item.lien} className="mi-button">
+                    <a href={item.lien} target="blank" className="mi-button">
                       Visiter le site
                     </a>
                   )}
 
                   {item.github && (
-                    <a href={item.github} className="mi-button">
+                    <a href={item.github} target="blank" className="mi-button">
                       GitHub
                     </a>
                   )}
@@ -116,6 +116,7 @@ function Item(props) {
             </div>
           </div>
         </div>
+
       </Suspense>
     </Layout>
   );
