@@ -95,9 +95,6 @@ function Item(props) {
                         <b>Année</b> {item.annee}
                       </li>
                       <li>
-                        <b>Technologies</b> {item.type}
-                      </li>
-                      <li>
                         {item.tags && item.tags.split(' ').map((tag, index) => (
                           <div className="tag" key={index}>#{tag}</div>
                         ))}
@@ -109,8 +106,8 @@ function Item(props) {
                     </a>
                   )}
 
-                  {item.githubLink && (
-                    <a href={item.githubLink} className="mi-button">
+                  {item.github && (
+                    <a href={item.github} className="mi-button">
                       GitHub
                     </a>
                   )}
