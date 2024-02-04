@@ -45,7 +45,6 @@ const AddWork = () => {
       formData.append("travail", JSON.stringify(travailObject));
   
       axios.post("https://api.quintarddylan.fr:4000/api/works", formData, {
-        withCredentials: true,
       })
         .then((response) => {
           console.log(response);
