@@ -1,79 +1,43 @@
 import axios from "axios";
-import React, { Suspense, useEffect, useState } from "react";
+import React, { Suspense, useState } from "react";
 import * as Icon from "react-feather";
 import { Helmet } from "react-helmet";
 import Layout from "../components/Layout";
 import Sectiontitle from "../components/Sectiontitle";
 import Spinner from "../components/Spinner";
 
-function Contact() {
-  const [phoneNumbers, setPhoneNumbers] = useState([]);
-  const [emailAddress, setEmailAddress] = useState([]);
-  const [address, setAddress] = useState([]);
-  const [formdata, setFormdata] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-  const [error, setError] = useState(false);
+const Contact = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
 
-  const submitHandler = async (event) => {
-    event.preventDefault();
+  const handleSubmit = e => {
+    e.preventDefault();
 
-    // Check for form validation
-    if (!formdata.name || !formdata.email || !formdata.subject || !formdata.message) {
-      setError(true);
-      setMessage("All fields are required");
+    if (name === "" || email === "" || subject === "" || message === "") {
+      alert("Please fill in all required fields.");
       return;
     }
 
-    try {
-      // Send the form data to the server
-      const response = await axios.post("https://api.quintarddylan.fr:4000/api/contact", formdata);
-
-      // Check the response from the server
-      if (response.status === 200) {
-        setError(false);
-        setMessage("Message envoyé avec succès !");
-      } else {
-        setError(true);
-        setMessage("Echec de l'envoi du message, réessayez plus tard.");
-      }
-    } catch (error) {
-      setError(true);
-      setMessage("Une erreur est survenue. Réessayez plus tard !");
-    }
+    axios.post("https://api.quintarddylan.fr:4000/api/contact", {
+      name,
+      email,
+      subject,
+      message,
+    })
+      .then(response => {
+        if (response.status === 201) {
+          alert("Votre message a bien été envoyé !");
+        } else {
+          const error = response.data.error;
+          alert(`Error: ${error}`);
+        }
+      })
+      .catch(error => {
+        console.error(error);
+      });
   };
-  const handleChange = (event) => {
-    setFormdata({
-      ...formdata,
-      [event.currentTarget.name]: event.currentTarget.value,
-    });
-  };
-  const numberFormatter = (number) => {
-    const phnNumber = number;
-    return phnNumber;
-  };
-
-  const handleAlerts = () => {
-    if (error && message) {
-      return <div className="alert alert-danger mt-4">{message}</div>;
-    } else if (!error && message) {
-      return <div className="alert alert-success mt-4">{message}</div>;
-    } else {
-      return null;
-    }
-  };
-
-  useEffect(() => {
-    axios.get("/api/contactinfo").then((response) => {
-      setPhoneNumbers(response.data.phoneNumbers);
-      setEmailAddress(response.data.emailAddress);
-      setAddress(response.data.address);
-    });
-  }, []);
 
   return (
     <Layout>
@@ -95,18 +59,18 @@ function Contact() {
                   <form
                     action="#"
                     className="mi-form mi-contact-form"
-                    onSubmit={submitHandler}
+                    onSubmit={handleSubmit}
                   >
                     <div className="mi-form-field">
-                      <label htmlFor="contact-form-name">
+                      <label htmlFor="name">
                         Entrez votre nom*
                       </label>
                       <input
-                        onChange={handleChange}
+                        onChange={e => setName(e.target.value)}
                         type="text"
                         name="name"
-                        id="contact-form-name"
-                        value={formdata.name}
+                        id="name"
+                        value={name}
                       />
                     </div>
                     <div className="mi-form-field">
@@ -114,36 +78,36 @@ function Contact() {
                         Entrez votre e-mail*
                       </label>
                       <input
-                        onChange={handleChange}
+                        onChange={e => setEmail(e.target.value)}
                         type="text"
                         name="email"
-                        id="contact-form-email"
-                        value={formdata.email}
+                        id="email"
+                        value={email}
                       />
                     </div>
                     <div className="mi-form-field">
-                      <label htmlFor="contact-form-subject">
+                      <label htmlFor="subject">
                         Entrez le sujet*
                       </label>
                       <input
-                        onChange={handleChange}
+                        onChange={e => setSubject(e.target.value)}
                         type="text"
                         name="subject"
-                        id="contact-form-subject"
-                        value={formdata.subject}
+                        id="subject"
+                        value={subject}
                       />
                     </div>
                     <div className="mi-form-field">
-                      <label htmlFor="contact-form-message">
+                      <label htmlFor="message">
                         Ecrivez moi un message*
                       </label>
                       <textarea
-                        onChange={handleChange}
+                        onChange={e => setMessage(e.target.value)}
                         name="message"
-                        id="contact-form-message"
+                        id="message"
                         cols="30"
                         rows="6"
-                        value={formdata.message}
+                        value={message}
                       ></textarea>
                     </div>
                     <div className="mi-form-field">
@@ -152,54 +116,41 @@ function Contact() {
                       </button>
                     </div>
                   </form>
-                  {handleAlerts()}
                 </div>
               </div>
               <div className="col-lg-6">
                 <div className="mi-contact-info">
-                  {!phoneNumbers ? null : (
                     <div className="mi-contact-infoblock">
                       <span className="mi-contact-infoblock-icon">
                         <Icon.Phone />
                       </span>
                       <div className="mi-contact-infoblock-content">
                         <h6>Téléphone</h6>
-                        {phoneNumbers.map((phoneNumber) => (
-                          <p key={phoneNumber}>
-                            <a href={numberFormatter(phoneNumber)}>
-                              {phoneNumber}
-                            </a>
+                          <p>
+                            +33 7 49 34 70 12
                           </p>
-                        ))}
                       </div>
                     </div>
-                  )}
-                  {!emailAddress ? null : (
                     <div className="mi-contact-infoblock">
                       <span className="mi-contact-infoblock-icon">
                         <Icon.Mail />
                       </span>
                       <div className="mi-contact-infoblock-content">
                         <h6>E-mail</h6>
-                        {emailAddress.map((email) => (
-                          <p key={email}>
-                            <a href={`mailto:${email}`}>{email}</a>
+                          <p>
+                            <a href={`mailto:quintarddylan@gmail.com`}>quintarddylan@gmail.com</a>
                           </p>
-                        ))}
                       </div>
                     </div>
-                  )}
-                  {!phoneNumbers ? null : (
                     <div className="mi-contact-infoblock">
                       <span className="mi-contact-infoblock-icon">
                         <Icon.MapPin />
                       </span>
                       <div className="mi-contact-infoblock-content">
                         <h6>Adresse</h6>
-                        <p>{address}</p>
+                        <p>Castres, 81100</p>
                       </div>
                     </div>
-                  )}
                 </div>
               </div>
             </div>

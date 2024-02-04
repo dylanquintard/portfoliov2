@@ -10,6 +10,8 @@ import Portfolios from "./pages/Portfolios";
 import Resumes from "./pages/Resumes";
 import Item from "./pages/Item";
 import AddWork from "./pages/AddWork";
+import Login from "./pages/Login";
+import EditWork from "./pages/EditWork";
 
 function App() {
   const [lightMode, setLightMode] = useState(false); // Made it true if you want to load your site light mode primary
@@ -48,7 +50,9 @@ function App() {
         <Route path="portfolios" element={<Portfolios />} />
         <Route path='/portfolios/:id' element={<Item />} component={Item} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/addwork" element={<AddWork />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/dashboard" element={<AddWork />} />
+        <Route path="/editwork/:id" element={<EditWork />} />
         <Route path="*" element={<Notfound />} />
       </Routes>
     </BrowserRouter>

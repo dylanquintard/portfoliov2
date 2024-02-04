@@ -1,75 +1,123 @@
+import { Suspense, useState, useEffect } from "react";
+import { useParams, useHistory } from "react-router-dom";
 import axios from "axios";
-import React, { Suspense, useEffect, useState } from "react";
-import * as Icon from "react-feather";
 import { Helmet } from "react-helmet";
 import Layout from "../components/Layout";
 import Sectiontitle from "../components/Sectiontitle";
 import Spinner from "../components/Spinner";
-import MessagesTable from "../components/MessagesTable";
-import WorksTable from "../components/WorkTable";
 
-const AddWork = () => {
-    const [titre, setTitre] = useState("");
-    const [lien, setLien] = useState("");
-    const [github, setGithub] = useState("");
-    const [annee, setAnnee] = useState("");
-    const [type, setType] = useState("");
-    const [description, setDescription] = useState("");
-    const [tags, setTags] = useState("");
-    const [image, setImage] = useState(null);
+const EditWork = () => {
+  const { id } = useParams();
+  const [work, setWork] = useState({});
+  const [notFound, setNotFound] = useState(false);
 
-    useEffect(() => {
-      const token = localStorage.getItem('token');
-      if (!token) {
-        window.location.href = '/login';
-      }
-    }, []);
-  
-    const handleFileChange = (e) => {
-      const selectedFile = e.target.files[0];
-      setImage(selectedFile);
-    };
-  
-    const handleSubmit = e => {
-      e.preventDefault();
-  
-      if (titre === "" || lien === "" || github === "" || annee === "" || type === "" || description === "" || tags === "") {
-        alert("Veuillez remplir tous les champs requis.");
-        return;
-      }
-  
-      const travailObject = {
-        titre,
-        lien,
-        github,
-        annee,
-        type,
-        description,
-        tags,
-      };
-  
-const formData = new FormData();
-formData.append("image", image);
-formData.append("travail", JSON.stringify(travailObject));
+  const [titre, setTitre] = useState("");
+  const [lien, setLien] = useState("");
+  const [github, setGithub] = useState("");
+  const [annee, setAnnee] = useState("");
+  const [type, setType] = useState("");
+  const [description, setDescription] = useState("");
+  const [tags, setTags] = useState("");
+  const [image, setImage] = useState(null);
 
-axios.post("https://api.quintarddylan.fr:4000/api/works", formData, {
-  headers: {
-    'Content-Type': 'multipart/form-data',
-  },
-})
-        .then((response) => {
-          console.log(response);
-          if (response.status === 201) {
-            alert("Le travail a été ajouté avec succès !");
-          } else {
-            const error = response.data.error;
-            alert(`Erreur : ${error}`);
-          }
-        })
-        .catch((error) => {
-          console.error(error);
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      window.location.href = '/login';
+    }
+  }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+
+      try {
+        const token = localStorage.getItem('token');
+
+        const response = await axios.get(`https://api.quintarddylan.fr:4000/api/works/${id}`, {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
         });
+
+        if (!response.data) {
+          throw new Error('Network response was not ok');
+        }
+
+        const workData = response.data;
+
+        setWork(workData);
+
+        // Pré-remplissage des champs du formulaire avec les données récupérées
+        setTitre(workData.titre || "");
+        setLien(workData.lien || "");
+        setGithub(workData.github || "");
+        setAnnee(workData.annee || "");
+        setType(workData.type || "");
+        setDescription(workData.description || "");
+        setTags(workData.tags || "");
+      } catch (error) {
+        console.error('Error loading data:', error);
+        setNotFound(true);
+      } finally {
+      }
     };
+
+    fetchData();
+  }, [id]);
+
+  const handleFileChange = (e) => {
+    const selectedFile = e.target.files[0];
+    setImage(selectedFile);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Ici la logique pour envoyer les données mises à jour au backend
+    // Utilisez work._id pour identifier le travail à mettre à jour
+
+    const travailObject = {
+      titre,
+      lien,
+      github,
+      annee,
+      type,
+      description,
+      tags,
+    };
+
+    const formData = new FormData();
+    formData.append("image", image);
+    formData.append("work", JSON.stringify(travailObject));
+
+    const token = localStorage.getItem('token');
+
+    axios.put(`https://api.quintarddylan.fr:4000/api/works/${work._id}`, formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((response) => {
+        console.log(response);
+        if (response.status === 200) {
+          alert("Le travail a été mis à jour avec succès !");
+          window.location.href = '/dashboard';
+        } else {
+          const error = response.data.error;
+          alert(`Erreur : ${error}`);
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  if (notFound) {
+    return <div>Travail non trouvé</div>;
+  }
 
   return (
     <Layout>
@@ -188,32 +236,10 @@ axios.post("https://api.quintarddylan.fr:4000/api/works", formData, {
                     </div>
                     <div className="mi-form-field">
                       <button className="mi-button" type="submit">
-                        Ajout du travail
+                        Modifier le projet
                       </button>
                     </div>
                   </form>
-                </div>
-              </div>
-              <div className="col-lg-6">
-                <div className="mi-contact-info">
-                    <div className="mi-contact-infoblock">
-                      <span className="mi-contact-infoblock-icon">
-                        <Icon.Briefcase />
-                      </span>
-                      <div className="mi-contact-infoblock-content">
-                        <h6>Travaux</h6>
-                        <WorksTable />
-                      </div>
-                    </div>
-                    <div className="mi-contact-infoblock">
-                      <span className="mi-contact-infoblock-icon">
-                        <Icon.MessageCircle />
-                      </span>
-                      <div className="mi-contact-infoblock-content">
-                        <h6>Messages</h6>
-                        <MessagesTable />
-                      </div>
-                    </div>
                 </div>
               </div>
             </div>
@@ -224,4 +250,4 @@ axios.post("https://api.quintarddylan.fr:4000/api/works", formData, {
   );
 }
 
-export default AddWork;
+export default EditWork;
