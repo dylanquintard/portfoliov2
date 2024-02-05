@@ -75,7 +75,7 @@ function MessagesTable({ messages }) {
             </div>
             <div className='buttonContainer'>
               <button className='toggleButton' onClick={() => toggleMessageVisibility(message._id)}>
-                {visibleMessages[message._id] ? 'Masquer' : 'Afficher'} le message
+                {visibleMessages[message._id] ? 'Masquer' : 'Afficher'}
               </button>
               <button className='deleteButton' onClick={() => handleDeleteMessage(message._id)}>
                 Supprimer

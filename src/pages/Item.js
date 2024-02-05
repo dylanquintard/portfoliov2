@@ -55,7 +55,7 @@ function Item(props) {
         <title>{titre} - Quintard Dylan Portfolio professionnel</title>
         <meta
           name="description"
-          content="Projet 1 de Dylan Quintard"
+          content="Projet réalisé par Dylan Quintard"
         />
       </Helmet>
       <Suspense fallback={<Spinner />}>
@@ -102,7 +102,7 @@ function Item(props) {
                   </ul>
                   {item.lien && (
                     <a href={item.lien} target="blank" className="mi-button">
-                      Visiter le site
+                      Site web
                     </a>
                   )}
 

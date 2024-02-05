@@ -9,7 +9,7 @@ const database = {
     nationality: 'American',
     language: 'Français, Anglais',
     email: '',
-    address: '121 King Street, Melbourne, Australia',
+    address: '81100, Castres, France',
     freelanceStatus: 'Available',
     socialLinks: {
       facebook: 'https://facebook.com',
@@ -60,23 +60,23 @@ const database = {
   skills: [
     {
       title: "HTML5",
-      value: 95
-    },
-    {
-      title: "CSS3",
       value: 90
     },
     {
-      title: "Javascript",
-      value: 70
-    },
-    {
-      title: "ReactJS",
+      title: "CSS3",
       value: 80
     },
     {
-      title: "NodeJS",
+      title: "Javascript",
+      value: 60
+    },
+    {
+      title: "ReactJS",
       value: 70
+    },
+    {
+      title: "NodeJS",
+      value: 60
     },
     {
       title: "Mongodb",
