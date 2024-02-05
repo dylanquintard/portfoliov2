@@ -79,9 +79,6 @@ function About() {
                   </p>
                   <ul>
                       <li>
-                        <b>Nom prénom </b> Quintard Dylan
-                      </li>
-                      <li>
                         <b>Age</b> 25 ans
                       </li>
                       <li>
