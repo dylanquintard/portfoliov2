@@ -8,7 +8,7 @@ import Spinner from "../components/Spinner";
 import MessagesTable from "../components/MessagesTable";
 import WorksTable from "../components/WorkTable";
 
-const AddWork = () => {
+const Dashboard = () => {
     const [titre, setTitre] = useState("");
     const [lien, setLien] = useState("");
     const [github, setGithub] = useState("");
@@ -74,10 +74,10 @@ axios.post("https://api.quintarddylan.fr:4000/api/works", formData, {
   return (
     <Layout>
       <Helmet>
-        <title>Contact - Quintard Dylan Portfolio professionnel</title>
+        <title>Dashboard - Quintard Dylan Portfolio professionnel</title>
         <meta
           name="description"
-          content="Ajouter un projet"
+          content="Tableau de bord, gestion des projets."
         />
       </Helmet>
       <Suspense fallback={<Spinner />}>
@@ -184,6 +184,7 @@ axios.post("https://api.quintarddylan.fr:4000/api/works", formData, {
                         name="image"
                         accept="image/*"
                         onChange={handleFileChange}
+                        style={{ padding: '6px' }}
                     />
                     </div>
                     <div className="mi-form-field">
@@ -224,4 +225,4 @@ axios.post("https://api.quintarddylan.fr:4000/api/works", formData, {
   );
 }
 
-export default AddWork;
+export default Dashboard;

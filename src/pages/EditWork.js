@@ -122,16 +122,12 @@ const EditWork = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Contact - Quintard Dylan Portfolio professionnel</title>
-        <meta
-          name="description"
-          content="Ajouter un projet"
-        />
+        <title>Modification d'un projet - Quintard Dylan Portfolio professionnel</title>
       </Helmet>
       <Suspense fallback={<Spinner />}>
         <div className="mi-contact-area mi-section mi-padding-top mi-padding-bottom">
           <div className="container">
-            <Sectiontitle title="Dashboard" />
+            <Sectiontitle title="Modifier un projet" />
             <div className="row">
               <div className="col-lg-6">
                 <div className="mi-contact-formwrapper">
@@ -141,7 +137,7 @@ const EditWork = () => {
                   >
                     <div className="mi-form-field">
                       <label htmlFor="title">
-                        Nom du travail*
+                        Nom du projet*
                       </label>
                     <input
                         type="text"
@@ -232,6 +228,7 @@ const EditWork = () => {
                         name="image"
                         accept="image/*"
                         onChange={handleFileChange}
+                        style={{ padding: '6px' }}
                     />
                     </div>
                     <div className="mi-form-field">

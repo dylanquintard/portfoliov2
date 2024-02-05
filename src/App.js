@@ -9,7 +9,7 @@ import Notfound from "./pages/Notfound";
 import Portfolios from "./pages/Portfolios";
 import Resumes from "./pages/Resumes";
 import Item from "./pages/Item";
-import AddWork from "./pages/AddWork";
+import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import EditWork from "./pages/EditWork";
 
@@ -51,7 +51,7 @@ function App() {
         <Route path='/portfolios/:id' element={<Item />} component={Item} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/dashboard" element={<AddWork />} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/editwork/:id" element={<EditWork />} />
         <Route path="*" element={<Notfound />} />
       </Routes>

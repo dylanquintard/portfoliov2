@@ -9,7 +9,7 @@
   
     .messageBox,
     .workItem {
-      border: 1px solid whitesmoke;
+      border: 1px solid ;
       padding: 10px;
       min-width: 400px;
       margin-bottom: 20px;
@@ -20,7 +20,6 @@
       .workTitle {
         margin: 5px;
         font-weight: bold;
-        color: whitesmoke;
       }
   
       .message {
@@ -31,15 +30,15 @@
   
       button,
       img {
-        width: 50px;
+        width: 40px;
+        margin: 5px;
         height: 30px;
         cursor: pointer;
       }
   
       button {
         border: 1px solid red;
-        color: whitesmoke;
-        background-color: red;
+        background-color: rgb(129, 52, 52);
       }
   
       button:hover {
@@ -59,19 +58,19 @@
       .deleteButton {
         width: 50%;
         height: 40px;
-        border: 1px solid blue;
+        border: 1px solid rgba($color-theme, 1);
         color: white;
-        font-size: 12px;
-        background-color: blue;
+        font-size: 14px;
+        background-color: rgba($color-theme, 1);
       }
   
       .deleteButton {
-        border: 1px solid red;
-        background-color: red;
+        border: 1px solid rgb(211, 72, 72);
+        background-color: rgb(211, 72, 72);
       }
   
       .toggleButton:hover {
-        background-color: rgb(0, 0, 68);
+        background-color: rgb(13, 13, 70);
       }
       .deleteButton:hover {
         background-color: rgb(77, 0, 0);
