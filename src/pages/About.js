@@ -75,7 +75,7 @@ function About() {
                     Je suis <span className="color-theme">Quintard Dylan</span>
                   </h3>
                   <p>
-                  Je suis développeur web et mobile fullstack JS, spécialisé dans React, Node.js (Express), et MongoDB. Mon expertise couvre la conception et le déploiement d'applications modernes, mettant l'accent sur des expériences utilisateur fluides et innovantes.
+                  Je suis développeur web et mobile fullstack JS, spécialisé dans React, Node.js (Express), et MongoDB. Mon expertise couvre la conception et le déploiement d'applications modernes, mettant l'accent sur des expériences utilisateur fluides et dynamiques. Situé à Castres proche de Toulouse, j'aime travailler sur de nouveaux projets et apprendre de nouvelles choses.  Ici vous trouverez toutes les informations concernant mes projets et mes compétences.
                   </p>
                   <ul>
                       <li>
