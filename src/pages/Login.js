@@ -18,11 +18,6 @@ function Login() {
   return (
     <Layout>
       <Helmet>
-        <title>À propos - Quintard Dylan Portfolio professionnel</title>
-        <meta
-          name="description"
-          content="À propos de Dylan Quintard"
-        />
       </Helmet>
       <Suspense fallback={<Spinner />}>
         <div className="mi-about-area mi-section mi-padding-top">
