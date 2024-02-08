@@ -18,11 +18,6 @@ function Home({ lightMode }) {
   return (
     <Layout>
       <Helmet>
-        <title>Accueil - Quintard Dylan Portfolio professionnel</title>
-        <meta
-          name="description"
-          content="Page d'accueil du portfolio de Dylan Quintard"
-        />
       </Helmet>
       <Suspense fallback={<Spinner />}>
         <div className="mi-home-area mi-padding-section">
