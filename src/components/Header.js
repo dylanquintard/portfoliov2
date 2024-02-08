@@ -97,7 +97,7 @@ function Header() {
             <a
               rel="noopener noreferrer"
               target="_blank"
-              href="/"
+              href="/dashboard"
             >
               Quintard Dylan
             </a>
