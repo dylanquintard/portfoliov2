@@ -12,13 +12,13 @@ const database = {
     address: '81100, Castres, France',
     freelanceStatus: 'Available',
     socialLinks: {
-      facebook: 'https://facebook.com',
-      twitter: 'https://twitter.com',
+      facebook: '',
+      twitter: '',
       pinterest: '',
       behance: '',
-      linkedin: '',
+      linkedin: 'https://www.linkedin.com/in/dylan-quintard-043a992b3/',
       dribbble: '',
-      github: 'https://github.com'
+      github: 'https://github.com/dylanquintard'
     },
     brandImage: '/images/brand-image.png',
     aboutImage: '/images/about-image.jpg',
