@@ -74,11 +74,6 @@ axios.post("https://api.quintarddylan.fr:4000/api/works", formData, {
   return (
     <Layout>
       <Helmet>
-        <title>Dashboard - Quintard Dylan Portfolio professionnel</title>
-        <meta
-          name="description"
-          content="Tableau de bord, gestion des projets."
-        />
       </Helmet>
       <Suspense fallback={<Spinner />}>
         <div className="mi-contact-area mi-section mi-padding-top mi-padding-bottom">
