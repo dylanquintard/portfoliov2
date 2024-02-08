@@ -60,7 +60,7 @@ function About() {
             <Sectiontitle title="À propos" />
             <div className="row align-items-center">
               <div className="col-lg-4">
-                <img src="/images/about-me.png"></img>
+                <img src="/images/about-me.png" alt="aboutImg"></img>
               </div>
               <div className="col-lg-1">
               </div>
