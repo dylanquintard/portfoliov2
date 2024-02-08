@@ -53,11 +53,6 @@ function About() {
   return (
     <Layout>
       <Helmet>
-        <title>À propos - Quintard Dylan Portfolio professionnel</title>
-        <meta
-          name="description"
-          content="À propos de Dylan Quintard"
-        />
       </Helmet>
       <Suspense fallback={<Spinner />}>
         <div className="mi-about-area mi-section mi-padding-top">
@@ -75,14 +70,14 @@ function About() {
                     Je suis <span className="color-theme">Quintard Dylan</span>
                   </h3>
                   <p>
-                  Je suis développeur web et mobile fullstack JS, spécialisé dans React, Node.js (Express), et MongoDB. Mon expertise couvre la conception et le déploiement d'applications modernes, mettant l'accent sur des expériences utilisateur fluides et dynamiques. Situé à Castres proche de Toulouse, j'aime travailler sur de nouveaux projets et apprendre de nouvelles choses.  Ici vous trouverez toutes les informations concernant mes projets et mes compétences.
+                  Je suis développeur web et mobile fullstack JS, spécialisé dans React, Node.js (Express), et MongoDB. Mon expertise couvre la conception et le déploiement d'applications modernes, mettant l'accent sur des expériences utilisateur fluides et dynamiques. Situé proche de Toulouse, j'aime travailler sur de nouveaux projets et apprendre de nouvelles choses.  Ici vous trouverez toutes les informations concernant mes projets et mes compétences.
                   </p>
                   <ul>
                       <li>
                         <b>Age</b> 25 ans
                       </li>
                       <li>
-                        <b>Téléphone</b> 07 49 34 70 12
+                        <b>Téléphone</b> +33 7 49 34 70 12
                       </li>
                       <li>
                         <b>Nationalité</b> Française
@@ -91,7 +86,7 @@ function About() {
                         <b>Langages</b> Français natif, Anglais moyen
                       </li>
                       <li>
-                        <b>Email</b> quintarddylan@gmail.com
+                        <b>Email</b> contact@quintarddylan.fr
                       </li>
                       <li>
                         <b>Ville</b> Castres, 81100
