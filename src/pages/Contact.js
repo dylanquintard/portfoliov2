@@ -42,11 +42,6 @@ const Contact = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Contact - Quintard Dylan Portfolio professionnel</title>
-        <meta
-          name="description"
-          content="Page de contact de Dylan Quintard"
-        />
       </Helmet>
       <Suspense fallback={<Spinner />}>
         <div className="mi-contact-area mi-section mi-padding-top mi-padding-bottom">
