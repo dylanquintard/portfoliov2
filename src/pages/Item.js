@@ -52,11 +52,6 @@ function Item(props) {
   return (
     <Layout>
       <Helmet>
-        <title>{titre} - Quintard Dylan Portfolio professionnel</title>
-        <meta
-          name="description"
-          content="Projet réalisé par Dylan Quintard"
-        />
       </Helmet>
       <Suspense fallback={<Spinner />}>
         <div className="mi-about-area mi-section mi-padding-top">
