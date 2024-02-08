@@ -30,7 +30,7 @@ function Home({ lightMode }) {
                     Bonjour, je suis{" "}
                     <span className="color-theme">Quintard Dylan</span>
                   </h1>
-                  <p>Bienvenue dans mon portfolio professionnel, j'aime travailler sur de nouveaux projets et apprendre de nouvelles choses. Ici vous trouverez toutes les informations concernant mon travail.</p>
+                  <p>Bienvenue dans mon portfolio professionnel je suis développeur web fullstack javascript à Castres, j'aime travailler sur de nouveaux projets et apprendre de nouvelles choses. Ici vous trouverez toutes les informations concernant mon travail.</p>
                   <Socialicons bordered />
                 </div>
               </div>
