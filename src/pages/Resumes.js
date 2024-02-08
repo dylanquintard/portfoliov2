@@ -27,11 +27,6 @@ function Resumes() {
   return (
     <Layout>
       <Helmet>
-        <title>Compétences - Quintard Dylan Portfolio professionnel</title>
-        <meta
-          name="description"
-          content="Compétences de Dylan Quintard"
-        />
       </Helmet>
       <Suspense fallback={<Spinner />}>
         <div className="mi-skills-area mi-section mi-padding-top">
