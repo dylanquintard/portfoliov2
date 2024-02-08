@@ -122,7 +122,6 @@ const EditWork = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Modification d'un projet - Quintard Dylan Portfolio professionnel</title>
       </Helmet>
       <Suspense fallback={<Spinner />}>
         <div className="mi-contact-area mi-section mi-padding-top mi-padding-bottom">
