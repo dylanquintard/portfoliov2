@@ -9,10 +9,6 @@ function Notfound() {
     <Layout>
       <Helmet>
         <title>404 - Erreur</title>
-        <meta
-          name="description"
-          content="Portfolio de Dylan Quintard, page non trouvée"
-        />
       </Helmet>
       <Suspense fallback={<Spinner />}>
         <div className="mi-about-area mi-section">
