@@ -81,6 +81,22 @@ const database = {
     {
       title: "Mongodb",
       value: 65
+    },
+    {
+      title: "SASS",
+      value: 60
+    },
+    {
+      title: "DevOps",
+      value: 30
+    },
+    {
+      title: "MySQL",
+      value: 20
+    },
+    {
+      title: "PHP",
+      value: 20
     }
   ],
   portfolios: [
