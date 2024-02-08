@@ -37,11 +37,6 @@ function Portfolios() {
   return (
     <Layout>
       <Helmet>
-        <title>Portfolio - Quintard Dylan Portfolio professionnel</title>
-        <meta
-          name="description"
-          content="Page portfolio de Dylan Quintard"
-        />
       </Helmet>
       <Suspense fallback={<Spinner />}>
         <div className="mi-about mi-section mi-padding-top mi-padding-bottom">
