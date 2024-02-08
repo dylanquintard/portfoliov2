@@ -133,7 +133,7 @@ const database = {
       {
         id: 1,
         year: "2023-2024",
-        graduation: "Diplôme développeur web et web mobile",
+        graduation: "Formation développeur web et web mobile",
         university: "OpenClassRoom",
         details: "Formation intensive chez OpenClassRoom en développement web et mobile, spécialisée dans le MERN stack (MongoDB, Express.js, React, Node.js). Acquisition de compétences pour concevoir des interfaces réactives avec React, développer des serveurs robustes avec Node.js, et gérer des bases de données MongoDB."
       }
