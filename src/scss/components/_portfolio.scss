@@ -9,11 +9,11 @@
   transition: $transition;
   visibility: hidden;
   opacity: 0;
+  max-height: 300px;
 
   &-image {
     display: block;
     position: relative;
-    max-height: 250px;
 
     &::before {
       content: "";
