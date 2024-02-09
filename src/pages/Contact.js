@@ -133,7 +133,7 @@ const Contact = () => {
                       <div className="mi-contact-infoblock-content">
                         <h6>E-mail</h6>
                           <p>
-                            <a href={`mailto:quintarddylan@gmail.com`}>quintarddylan@gmail.com</a>
+                            <a href={`mailto:quintarddylan@gmail.com`}>contact@quintarddylan.fr</a>
                           </p>
                       </div>
                     </div>
