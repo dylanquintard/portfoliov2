@@ -30,6 +30,8 @@
     img {
       width: 100%;
       overflow: hidden;
+      max-height: 300px;
+      min-height: 300px;
     }
 
     ul {
