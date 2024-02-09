@@ -20,6 +20,7 @@
       left: 15px;
       top: 15px;
       height: calc(100% - 30px);
+      max-height: 400px;
       width: calc(100% - 30px);
       background: rgba(#ffffff, 0.9);
       transition: $transition;
