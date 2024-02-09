@@ -13,6 +13,7 @@
   &-image {
     display: block;
     position: relative;
+    max-height: 400px;
 
     &::before {
       content: "";
