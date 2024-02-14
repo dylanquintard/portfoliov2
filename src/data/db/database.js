@@ -60,11 +60,11 @@ const database = {
   skills: [
     {
       title: "HTML5",
-      value: 90
+      value: 80
     },
     {
       title: "CSS3",
-      value: 80
+      value: 70
     },
     {
       title: "Javascript",
@@ -72,31 +72,31 @@ const database = {
     },
     {
       title: "ReactJS",
-      value: 70
+      value: 60
     },
     {
       title: "NodeJS",
-      value: 60
+      value: 50
     },
     {
       title: "Mongodb",
-      value: 65
+      value: 55
     },
     {
       title: "SASS",
-      value: 60
+      value: 50
     },
     {
       title: "DevOps",
-      value: 30
+      value: 20
     },
     {
       title: "MySQL",
-      value: 20
+      value: 15
     },
     {
       title: "PHP",
-      value: 20
+      value: 15
     }
   ],
   portfolios: [
