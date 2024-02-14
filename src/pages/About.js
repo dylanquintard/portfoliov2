@@ -74,7 +74,7 @@ function About() {
                   </p>
                   <ul>
                       <li>
-                        <b>Age</b> 25 ans
+                        <b>Age</b> 27 ans
                       </li>
                       <li>
                         <b>Téléphone</b> +33 7 49 34 70 12
