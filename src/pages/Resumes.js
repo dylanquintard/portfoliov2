@@ -1,22 +1,21 @@
 import axios from "axios";
 import React, { Suspense, useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
-import TrackVisibility from "react-on-screen";
+import Service from "../components/Service";
 import Layout from "../components/Layout";
-import Progress from "../components/Progress";
 import Resume from "../components/Resume";
 import Sectiontitle from "../components/Sectiontitle";
 import Smalltitle from "../components/Smalltitle";
 import Spinner from "../components/Spinner";
 
 function Resumes() {
-  const [skills, setSkills] = useState([]);
   const [workingExperience, setWorkingExperience] = useState([]);
   const [educationExperience, setEducationExperience] = useState([]);
+  const [services, setServices] = useState([]);
 
   useEffect(() => {
-    axios.get("/api/skills").then((response) => {
-      setSkills(response.data);
+    axios.get("/api/services").then((response) => {
+      setServices(response.data);
     });
     axios.get("/api/experience").then((response) => {
       setWorkingExperience(response.data.workingExperience);
@@ -30,18 +29,17 @@ function Resumes() {
       </Helmet>
       <Suspense fallback={<Spinner />}>
         <div className="mi-skills-area mi-section mi-padding-top">
-          <div className="container">
-            <Sectiontitle title="Mes Compétences" />
-            <div className="mi-skills">
+        <div className="container">
+            <Sectiontitle title="Services" />
+            <div className="mi-service-wrapper">
               <div className="row mt-30-reverse">
-                {skills.map((skill) => (
-                  <TrackVisibility
-                    once
-                    className="col-lg-6 mt-30"
-                    key={skill.title}
+                {services.map((service) => (
+                  <div
+                    className="col-lg-4 col-md-6 col-12 mt-30"
+                    key={service.title}
                   >
-                    <Progress title={skill.title} percentage={skill.value} />
-                  </TrackVisibility>
+                    <Service content={service} />
+                  </div>
                 ))}
               </div>
             </div>
