@@ -30,7 +30,7 @@ function Resumes() {
       <Suspense fallback={<Spinner />}>
         <div className="mi-skills-area mi-section mi-padding-top">
         <div className="container">
-            <Sectiontitle title="Services" />
+            <Sectiontitle title="Compétences" />
             <div className="mi-service-wrapper">
               <div className="row mt-30-reverse">
                 {services.map((service) => (
