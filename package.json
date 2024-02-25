@@ -24,7 +24,8 @@
 		"react-tsparticles": "^1.40.2",
 		"sass": "^1.69.5",
 		"shave": "^4.0.0",
-		"slick-carousel": "^1.8.1"
+		"slick-carousel": "^1.8.1",
+		"sweetalert": "^2.1.2"
 	},
 	"scripts": {
 		"start": "react-scripts start",
