@@ -1,42 +1,31 @@
-import axios from "axios";
-import React, { Suspense, useState } from "react";
+import React, { Suspense, useRef } from "react";
 import * as Icon from "react-feather";
 import { Helmet } from "react-helmet";
 import Layout from "../components/Layout";
 import Sectiontitle from "../components/Sectiontitle";
 import Spinner from "../components/Spinner";
+import swal from 'sweetalert';
 
-const Contact = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [subject, setSubject] = useState("");
-  const [message, setMessage] = useState("");
+export const Contact = () => {
+  const form = useRef();
 
-  const handleSubmit = e => {
+  const sendEmail = (e) => {
     e.preventDefault();
 
-    if (name === "" || email === "" || subject === "" || message === "") {
-      alert("Please fill in all required fields.");
-      return;
-    }
-
-    axios.post("https://api.quintarddylan.fr:4000/api/contact", {
-      name,
-      email,
-      subject,
-      message,
-    })
-      .then(response => {
-        if (response.status === 201) {
-          alert("Votre message a bien été envoyé !");
-        } else {
-          const error = response.data.error;
-          alert(`Error: ${error}`);
-        }
+    emailjs
+      .sendForm('service_ja6rwmx', 'template_i6zr8mo', form.current, {
+        publicKey: '2tB8jBcgCv2ooHnK5',
       })
-      .catch(error => {
-        console.error(error);
-      });
+      .then(
+        () => {
+          console.log('SUCCESS!');
+          form.current.reset();
+          swal("Message envoyé!", "Votre message a été transmis, je vous répondrais dans les plus bref délais.", "success");
+        },
+        (error) => {
+          console.log('FAILED...', error.text);
+        },
+      );
   };
 
   return (
@@ -51,21 +40,15 @@ const Contact = () => {
               <div className="col-lg-6">
                 <div className="mi-contact-formwrapper">
                   <h4>Entrer en contact</h4>
-                  <form
-                    action="#"
-                    className="mi-form mi-contact-form"
-                    onSubmit={handleSubmit}
-                  >
+                  <form ref={form} onSubmit={sendEmail}>
                     <div className="mi-form-field">
                       <label htmlFor="name">
                         Entrez votre nom*
                       </label>
                       <input
-                        onChange={e => setName(e.target.value)}
                         type="text"
-                        name="name"
-                        id="name"
-                        value={name}
+                        name="user_name"
+                        required
                       />
                     </div>
                     <div className="mi-form-field">
@@ -73,23 +56,9 @@ const Contact = () => {
                         Entrez votre e-mail*
                       </label>
                       <input
-                        onChange={e => setEmail(e.target.value)}
-                        type="text"
-                        name="email"
-                        id="email"
-                        value={email}
-                      />
-                    </div>
-                    <div className="mi-form-field">
-                      <label htmlFor="subject">
-                        Entrez le sujet*
-                      </label>
-                      <input
-                        onChange={e => setSubject(e.target.value)}
-                        type="text"
-                        name="subject"
-                        id="subject"
-                        value={subject}
+                        type="email"
+                        name="user_email"
+                        required
                       />
                     </div>
                     <div className="mi-form-field">
@@ -97,16 +66,15 @@ const Contact = () => {
                         Ecrivez moi un message*
                       </label>
                       <textarea
-                        onChange={e => setMessage(e.target.value)}
                         name="message"
                         id="message"
                         cols="30"
                         rows="6"
-                        value={message}
+                        required
                       ></textarea>
                     </div>
                     <div className="mi-form-field">
-                      <button className="mi-button" type="submit">
+                    <button className="mi-button" type="submit">
                         Envoyez un mail
                       </button>
                     </div>
